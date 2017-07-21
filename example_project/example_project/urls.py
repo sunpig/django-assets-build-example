@@ -16,8 +16,11 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from home.views import HomeIndexView
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^contests/', include('contests.urls', namespace='contests')),
     url(r'^slates/', include('slates.urls', namespace='slates')),
+    url(r'^$', HomeIndexView.as_view(), name='home_index'),
 ]

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h1>Home</h1>
+
+<ul>
+	<li><a href="{% url 'slates:slates_list' %}">Slates</a></li>
+	<li><a href="{% url 'contests:contests_list' %}">Contests</a></li>
+</ul>
+
+{% endblock %}

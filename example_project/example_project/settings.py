@@ -53,6 +53,7 @@ INSTALLED_APPS = [
 
     # Project apps
     'contests',
+    'home',
     'slates',
 ]
 
