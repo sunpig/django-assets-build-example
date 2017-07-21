@@ -180,7 +180,7 @@ template "/var/apps/#{project_name}/#{project_name}.env" do
 end
 
 ################################
-# Create a staging environment in the VM to mimic production in certain key aspects:
+# Create a pseudo-production environment in the VM to mimic production in certain key aspects:
 # * uwsgi in emperor mode
 # * uwsgi will run the app as the www-data user
 # * app will be stored in /var/apps/#{project_name}. Each deploy will go
@@ -193,9 +193,9 @@ end
 # The idea being:
 # * In development, work with the django development server.
 # * Access the development server from the host machine as localhost:8000
-# * From within the VM, deploy to the VM-based staging environment
+# * From within the VM, deploy to the VM-based pseudo-production environment
 #   * When you ssh into the VM, you're using the 'ubuntu' user. All deployment tools (e.g. node) can assume this user.
-#   * The app in the staging environment will be run under the www-data account.
+#   * The app in the pseudo-production environment will be run under the www-data account.
 # * From the host machine, access the app via nginx at localhost:8080
 #
 ################################
@@ -281,8 +281,8 @@ template "/etc/nginx/sites-available/#{project_name}_nginx_site" do
   })
 end
 # 3: Enable the new site
-link '/etc/nginx/sites-enabled/#{project_name}_nginx_site' do
-  to '/etc/nginx/sites-available/#{project_name}_nginx_site'
+link "/etc/nginx/sites-enabled/#{project_name}_nginx_site" do
+  to "/etc/nginx/sites-available/#{project_name}_nginx_site"
 end
 # 4: Restart nginx to reload config
 execute "restart nginx service" do

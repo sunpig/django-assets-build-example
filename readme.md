@@ -83,12 +83,12 @@ Use devtools/view source to see CSS/JS requests the browser is making.
 
 ### Production mode (nginx + uwsgi)
 
-When the VM is ready, this will transform the static assets, package up the code, and deploy it to a local "staging" directory that uses a production-like environment (nginx + uswgi).
+When the VM is ready, this will transform the static assets, package up the code, and deploy it to a local production-like environment (nginx + uswgi).
 
 ```
 # Terminal 3: package and deploy
 vagrant ssh
-make deploy_local_staging
+make deploy_local_prod
 ```
 
 In your browser:

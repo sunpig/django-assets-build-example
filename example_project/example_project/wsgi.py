@@ -15,6 +15,6 @@ from django.core.wsgi import get_wsgi_application
 
 dotenv.read_dotenv('/var/apps/example_project/example_project.env')
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "example_project.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "example_project.settings_local_prod")
 
 application = get_wsgi_application()

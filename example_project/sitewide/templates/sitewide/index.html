@@ -1,6 +1,7 @@
-{% extends 'base.html' %}
+{% extends 'sitewide/base.html' %}
+{% load static %}
 
-{% block body %}
+{% block main_content %}
 
 <h1>Home</h1>
 
@@ -8,5 +9,7 @@
 	<li><a href="{% url 'slates:slates_list' %}">Slates</a></li>
 	<li><a href="{% url 'contests:contests_list' %}">Contests</a></li>
 </ul>
+
+<img src="{% static 'sitewide/img/sunpig_parent_child.jpg'%}" class="mv-3" />
 
 {% endblock %}

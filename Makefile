@@ -15,13 +15,10 @@ make shell			- Start a python session with django stuff loaded
 make dbshell		- Start a database command shell
 make createsuperuser - Create a new app superuser in the db
 make lint			- Lint code
-make pytest	        - run the python tests using pytest
-make pytestcoverage	- run the python tests using pytest with coverage report
 make assets			- compile and generate static assets
-make assets_local_staging	- compile, generate, and minify static assets 
-make assetswatch	- watch and recompile static assets on the fly
+make assetswatch	- watch and recompile static assets on the fly for dev mode
 make collectstatic	- collect static files with production settings, ready for deployment
-make deploy_local_staging	- deploy code to local (VM-based) staging environment
+make deploy_local_prod	- deploy code to local (VM-based) production-like environment
 endef
 
 export HELP
@@ -85,14 +82,6 @@ dbshell: requirements
 createsuperuser: requirements
 	python $(PROJECT_NAME)/manage.py createsuperuser
 
-.PHONY: pytest
-pytest:
-	cd /vagrant/$(PROJECT_NAME) && pytest -v
-
-.PHONY: pytestcoverage
-pytestcoverage:
-	cd /vagrant/$(PROJECT_NAME) && pytest --cov-report term-missing --cov=. --cov-config ../.coveragerc
-
 builddir:
 	test -d build || mkdir build
 	chmod 775 build
@@ -111,8 +100,8 @@ assetswatch: npminstall
 
 .PHONY: collectstatic
 collectstatic: assets_optimized
-	python $(PROJECT_NAME)/manage.py collectstatic --noinput --clear --settings=config.settings_collectstatic
+	python $(PROJECT_NAME)/manage.py collectstatic --noinput --clear --settings=$(PROJECT_NAME).settings_collectstatic
 
-.PHONY: deploy_local_staging
-deploy_local_staging: collectstatic
-	scripts/deploy_local_staging.sh
+.PHONY: deploy_local_prod
+deploy_local_prod: collectstatic
+	scripts/deploy_local_prod.sh

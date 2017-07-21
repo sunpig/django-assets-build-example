@@ -11,7 +11,7 @@ server {
 
     location  /static {
       alias  /var/apps/<%= @project_name %>/current/build/static/prod;
-      expires 30d;
+      expires 365d;
       access_log off;
     }
 

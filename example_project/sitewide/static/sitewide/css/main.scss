@@ -8,6 +8,8 @@
 // file in the bootstrap source tree.)
 @import "theme_variables";
 
+// The gulp task sets the appropriate include path so that we can
+// grab the bootstrap scss directly from node_modules
 @import "bootstrap";
 
 // Now include customizations that build *on top of* bootstrap.

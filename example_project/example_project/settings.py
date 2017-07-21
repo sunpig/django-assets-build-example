@@ -53,7 +53,7 @@ INSTALLED_APPS = [
 
     # Project apps
     'contests',
-    'home',
+    'sitewide',
     'slates',
 ]
 
@@ -142,7 +142,7 @@ USE_TZ = True
 # 1) Write uncompiled static code (sass, css, js) in the normal /static directory within each app
 # 2) gulp compiles the static assets to build/static/dev
 # 3) django dev web server will grab static assets from here
-# 4) For staging/prod deployments, run the `collectstatic` command
+# 4) For production deployments, run the `collectstatic` command
 # 5) This will collect all static assets into build/static/prod
 # 6) The directory build/static/prod gets moved to the deploy target
 # 7) nginx will serve
@@ -157,7 +157,7 @@ USE_TZ = True
 # having to talk to the app.
 STATIC_URL = '/static/'
 
-# We want to use compiled/generated static in development. The gulp task
+# We want to use compiled/generated static files in development. The gulp task
 # runner is responsible for making dev builds and putting the assets here.
 # By making them part of STATICFILES_DIRS, django knows to try these folders
 # as well as the /static/ folders inside apps when looking for static files.

@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
 
   # Base box gives 384MB memory - give it a bit more than that.
   config.vm.provider "virtualbox" do |v|
-    v.customize ["modifyvm", :id, "--memory", "1024"]
+    v.customize ["modifyvm", :id, "--memory", "2048"]
   end
 
   # Disable automatic box update checking. If you disable this, then

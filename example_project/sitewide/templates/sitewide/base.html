@@ -4,14 +4,16 @@
 	<head>
 		<title>Example project</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+		<link rel="stylesheet" href="{% static 'sitewide/css/main.css' %}" />
+		{% block head_extra %}
+		{% endblock %}
 	</head>
 	<body>
 		<nav class="navbar navbar-toggleable-sm navbar-inverse fixed-top bg-inverse">
 			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<a class="navbar-brand" href="/">Example project</a>
+			<a class="navbar-brand" href="/">Example project!</a>
 
 			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 				<ul class="navbar-nav">
@@ -37,13 +39,16 @@
 				</div>
 			{% endfor %}
 
-			{% block body %}
+			{% block main_content %}
 			{% endblock %}
 
 		</div>
 
 		<!-- Run the JS -->
-		<script src="{% static 'js/main.js' %}"></script>
+		<script src="{% static 'sitewide/js/lib.js' %}"></script>
+
+		{% block extra_js %}
+		{% endblock %}
 
 	</body>
 </html>

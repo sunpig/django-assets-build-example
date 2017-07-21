@@ -5,7 +5,7 @@
 # the base directory (full unix file path to where manage.py can be found)
 chdir           = /var/apps/<%= @project_name %>/current/<%= @project_name %>
 # Django's wsgi file (python module path, relative to base dir)
-module          = config.wsgi
+module          = <%= @project_name %>.wsgi
 # the virtualenv (full path)
 home            = /var/apps/<%= @project_name %>/current/venv
 

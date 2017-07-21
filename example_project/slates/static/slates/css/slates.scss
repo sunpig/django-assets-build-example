@@ -1,0 +1,10 @@
+@import 'vars';
+
+#demo {
+	height:200px;
+	width:200px;
+	background-color: $demo-color;
+	border: 1px solid $demo-border-color;
+	border-radius: $demo-border-radius;
+    transition: all 0.2s ease;
+}
