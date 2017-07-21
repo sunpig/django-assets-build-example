@@ -50,10 +50,11 @@ Requirements:
 
 * Vagrant 1.9.x (earlier will probably work, too)
 
-Start up the VM:
+Start up and prepare the VM:
 
 ```
 vagrant up
+vagrant ssh
 make requirements
 make migrate_all
 ```
@@ -80,6 +81,7 @@ In your browser:
 
 Use devtools/view source to see CSS/JS requests the browser is making.
 
+If you edit python/django files, the development server will pick up the changes. If you edit static assets, the assetswatch task will see the changes and update the transformed output. In both cases, you should be able to make your change, wait a couple of seconds, reload page in your browser, and see the changes. (Note: if static file changes aren't visible, your _browser_ may be caching JS and CSS files more aggressively than you need for dev mode.)
 
 ### Production mode (nginx + uwsgi)
 
@@ -96,3 +98,5 @@ In your browser:
 [http://localhost:8080/](http://localhost:8080/)
 
 Use devtools/view source to see CSS/JS requests the browser is making.
+
+As this pseudo-production environment contains a packaged deployment, when you edit your python/django files and static assets, you will have to manually trigger a new deployment for those changes to show up here.

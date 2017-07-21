@@ -51,7 +51,7 @@ requirements:
 	pip install -r requirements.txt
 
 .PHONY: runserver
-runserver: requirements  #assets
+runserver: requirements assets
 	python $(PROJECT_NAME)/manage.py runserver 0.0.0.0:8000
 
 .PHONY: makemigrations

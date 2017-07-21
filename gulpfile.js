@@ -62,7 +62,13 @@ gulp.task('img', function () {
 // Prepare all client assets for use in dev mode
 // Use gulp-sequence until gulp 4 (which will have native sequential tasks)
 // This has to be sequential: the clean task has to happen before we fill the folder!
-gulp.task('assets', gulpSequence('clean:dev', ['sass', 'js', 'img']));
+// Also, see https://github.com/teambition/gulp-sequence/issues/2
+gulp.task(
+	'assets',
+	function(callback) {
+		gulpSequence('clean:dev', ['sass', 'js', 'img'])(callback)
+	}
+);
 
 
 // Watch assets and trigger dev mode preparation step.
