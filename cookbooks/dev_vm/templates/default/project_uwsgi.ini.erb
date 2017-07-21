@@ -1,0 +1,31 @@
+# <%= @project_name %> uwsgi ini file
+[uwsgi]
+
+# Django-related settings
+# the base directory (full unix file path to where manage.py can be found)
+chdir           = /var/apps/<%= @project_name %>/current/<%= @project_name %>
+# Django's wsgi file (python module path, relative to base dir)
+module          = config.wsgi
+# the virtualenv (full path)
+home            = /var/apps/<%= @project_name %>/current/venv
+
+# process-related settings
+# master
+master          = true
+# maximum number of worker processes
+processes       = 5
+# the socket (use the full path to be safe
+socket          = /var/run/uwsgi/<%= @project_name %>.sock
+
+# nginx's workers run as www-data. Run this app as www-data as well.
+uid				= www-data
+gid				= www-data
+chmod-socket    = 644
+
+# clear environment on exit
+vacuum          = true
+
+# Log file should be owned by www-data, readable by at least group
+logto           = /var/log/uwsgi/<%= @project_name %>.log
+logfile-chown	= www-data
+logfile-chmod	= 640

@@ -1,0 +1,15 @@
+# Make an alias for moving into the /vagrant directory and initializing the relevant venv
+alias startwork='cd /vagrant/;source ~/.envs/<%= @project_name %>/bin/activate'
+
+# Run the startwork alias on login. That's the whole point of this VM.
+startwork
+
+# Set variables for nvm
+export NVM_DIR="$HOME/.nvm"
+# activate nvm on login
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+# Read env for <%= @project_name %>
+set -o allexport
+source /var/apps/<%= @project_name %>/<%= @project_name %>.env
+set +o allexport

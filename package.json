@@ -1,0 +1,28 @@
+{
+  "name": "example_project",
+  "version": "1.0.0",
+  "description": "Example project to illustrate serving compiled assets through django dev server, and compiled and concatenated assets in a production-like environment",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "bootstrap": "^4.0.0-alpha.6",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.5.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sequence": "^0.4.6",
+    "gulp-uglify": "^3.0.0",
+    "jquery": "^3.2.1",
+    "jquery-migrate": "^3.0.0",
+    "node-sass": "^4.5.2",
+    "pump": "^1.0.2",
+    "tether": "^1.4.0",
+    "underscore": "^1.8.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

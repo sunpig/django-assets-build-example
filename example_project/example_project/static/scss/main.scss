@@ -1,0 +1,16 @@
+/* Example app CSS, using bootstrap 4 as its basis */
+
+
+// Include theme variables *before* including the main
+// bootstrap source. This is where we will set the
+// basic boostrap customization variables. (This is
+// a less invasive alternative to putting them into the _custom.scss
+// file in the bootstrap source tree.)
+@import "theme_variables";
+
+@import "bootstrap";
+
+// Now include customizations that build *on top of* bootstrap.
+@import "content";
+
+// Import other library (s)css here

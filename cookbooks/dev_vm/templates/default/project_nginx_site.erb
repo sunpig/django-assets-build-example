@@ -1,0 +1,22 @@
+# <%= @project_name %> nginx site configuration
+
+server {
+  listen  80;
+    server_name localhost;
+    charset utf-8;
+    access_log /var/log/nginx/<%= @project_name %>.access.log;
+    error_log /var/log/nginx/<%= @project_name %>.error.log;
+    gzip on;
+    gzip_types text/plain text/css text/js text/xml text/javascript application/javascript application/x-javascript application/json application/xml application/xml+rss;
+
+    location  /static {
+      alias  /var/apps/<%= @project_name %>/current/build/static/prod;
+      expires 30d;
+      access_log off;
+    }
+
+    location / {
+      uwsgi_pass  unix:/var/run/uwsgi/<%= @project_name %>.sock;
+      include     /etc/nginx/uwsgi_params;
+    }
+}
