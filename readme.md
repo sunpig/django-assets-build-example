@@ -85,7 +85,7 @@ If you edit python/Django files, the development server will pick up the changes
 
 ### Pseudo-production mode (nginx + uwsgi)
 
-When the VM is ready, this will transform the static assets, package up the code, and deploy it to a local pseudo-production environment (nginx + uswgi).
+When the VM is ready, this will transform the static assets, package up the code, and deploy it to a local pseudo-production environment based on nginx (web server) and uwsgi (app server).
 
 ```
 # Terminal 3: package and deploy
